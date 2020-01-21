@@ -35,11 +35,11 @@
     
    // 이러케하면
    
-   ? Project name blabla
-   ? Project descirption A Vue.js project
-   ? Author leepro225 <leepro225@gmail.com>
-   ? License MIT
-   ? Use sass? N
+   ? Project name blabla  
+   ? Project descirption A Vue.js project  
+   ? Author leepro225 <leepro225@gmail.com>  
+   ? License MIT  
+   ? Use sass? N  
    
    
 ### 해당 폴더로 가서 npm install
