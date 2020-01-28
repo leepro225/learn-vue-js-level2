@@ -1,28 +1,40 @@
-# 컴포넌트 통신 방식
+# v-bind:class
 
-### 컴포넌트 통신 방식
-    
-뷰 컴포넌트는 각각 고유한 데이터 유효 범위를 갖습니다. 따라서, 컴포넌트 간에 데이터를 주고 받기 위해선 아래와 같은 규칙을 따라야 합니다.
+### 토글 기능 구현
 
-![02](./img/02.JPG)
+    <template>
+      <div>
+        <ul>
+          <li v-for="(todoItem, index) in todolist"
+                    v-bind:key="todoItem.item">
+                    // 값이 true면 chekcBtnCompleted클래스 적용됨
+            <i v-bind:class="{chekcBtnCompleted: todoItem.completed}"
+               v-click="toggleComplete"></i>
+            <span v-bind:class="{textCompleted: todoItem.completed}">{{ todoItem.item }}</span>
+            <button 
+              v-on:click="removeTodoItem(todoItem, index)">remove</button>
+          </li>
+        </ul>
+      </div>
+    </template>
 
-&#46; 상위에서 하위로는 데이터를 내려줌, 프롭스 속성  
-&#46; 하위에서 상위로는 이벤트를 올려줌, 이벤트 발생
+    <script>
+    export default {
+        props: ['todolist'],
+        data() {
+            return {
+                todoItems: [],
+            };
+        },
+        methods: {
+          toggleComplete : function(todoItem, index) {
+                todoItem.completed = !todoItem.completed;   // 반대로 값을 바꿔주고
+                localStorage.removeItem(todoItem);          // db에서 삭제하고
+                localStorage.setItem(todoItem.item, JSON.stringify(todoItem);   // 변경된 값을 업데이트해주고
+          }
+        },
+    };
+    </script>
 
-
-
-
-
-### 컴포넌트 통신 규칙이 필요한 이유
-
-![03](./img/03.JPG)
-
-작업을 하다보면 헤더의 데이터가 바뀌면 로그인의 컴포넌트가 변화하는 등 n방향의 데이터 흐름이 생김  
-이게 아주 여러개 생기다보면 데이터의 흐름을 파악할 수 없게 됨.  
-
-
-![04](./img/04.JPG)
-
-그래서 규칙을 만들게 됨. 이제 우리는 처음에는 힘들지라도 항상 위에서 데이터(프롭스)가 내려오구나  
-아래서 부모로 무언가 하려면 이벤트 emit을 해야하는 구나 규칙을 알고 사용하게 됨.
-
+    <style>
+    </style>
