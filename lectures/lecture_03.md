@@ -38,6 +38,47 @@
     };
     </script>
     <style>
+    
+    
+    
+
+### 삭제기능 구현하기
+    
+    <template>
+      <div>
+        <ul>
+          <li v-for="(todoItem, index) in todolist"
+                    v-bind:key="index">
+            <span>{{ todoItem }}</span>
+            <button 
+              v-on:click="removeTodoItem(todoItem, index)">remove</button>
+          </li>
+        </ul>
+      </div>
+    </template>
+
+    <script>
+    export default {
+        props: ['todolist'],
+        data() {
+            return {
+                todoItems: [],
+            };
+        },
+        methods: {
+            removeTodoItem: function(todo, index) {
+                // arr.splice('시작할 배열 인덱스', '갯수');
+                this.todoItems.splice(index, 1);
+                // 브라우저 저장소의 데이터 삭제
+                localStorage.removeItem(todo);
+            },
+        }
+    };
+    </script>
+
+    <style>
+    </style>
+
     </style>
     
 
