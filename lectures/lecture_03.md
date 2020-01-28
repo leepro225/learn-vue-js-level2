@@ -1,56 +1,42 @@
-# 컴포넌트 개념 
+# v-for 
 
-### 컴포넌트
+### v-for를 이용해 리스트 뿌리기
     
-재사용성을 올리기 위해 화면의 영역을 나누어 컴포넌트 단위로 코드를 개발  
-컴포넌트 간의 관계가 생긴다
+    <template>
+      <div>
+        <ul>
+          <li v-for="todoItem in todolist" v-bind:key="index">
+            <span>{{ todoItem }}</span>
+          </li>
+        </ul>
+      </div>
+    </template>
 
-
-### 전역 컴포넌트 등록
-
-    <div id="app">
-        <app-header></app-header>
-    </div>
-    
-    Vue.component('app-content', {
-        template : '<h1>Header</h1>'
-    });
-    
-    new Vue({
-        el : '#app'
-    });
-    
-실무에서는 잘 쓰지 않음!
-
-
-
-
-
-### 지역 컴포넌트 등록
-
-    new Vue({
-        el : '#app',
-        components : {
-            // '컴포넌트 이름' : 컴포넌트 내용
-            'app-footer' : {
-                template : '<footer>something</footer>
+    <script>
+    export default {
+        props: ['todolist'],
+        data() {
+                return {
+        	        todoItems: []
+            };
+        },
+        methods: {
+            fetchTodoItems: function() {
+                // 브라우저 저장소의 데이터를 불러오기
+                for (var i = 0; i < localStorage.length; i++) {
+            	    var item = localStorage.key(i);
+           	        this.todoItems.push(item);
+                }
+                // 서버의 데이터 불러오기
+                axios.get();
             }
-        }
-    });
-
-
-
-
-
-### 전역 컴포넌트와 지역 컴포넌트의 차이점
-
-전역 : 플러그인이나 라이브러리의 개념으로 전역에서 사용하고 싶을 때   
-지역 : components 안에 여러개 사용, 그 컴포넌트 파일 안에서 사용하고 싶을 때
-
-
-
-
-
-### 컴포넌트와 인스턴스와의 관계
-
+        },
+        // // 컴포넌트가 생성되자마자 실행되는 로직
+        created: function() {
+            this.fetchTodoItems();
+        },
+    };
+    </script>
+    <style>
+    </style>
 
