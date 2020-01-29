@@ -13,6 +13,7 @@
             <span v-bind:class="{textCompleted: todoItem.completed}">{{ todoItem.item }}</span>
             <button 
               v-on:click="removeTodoItem(todoItem, index)">remove</button>
+            <button v-on:click="clearAll">clear All</button>
           </li>
         </ul>
       </div>
@@ -31,6 +32,9 @@
                 todoItem.completed = !todoItem.completed;   // 반대로 값을 바꿔주고
                 localStorage.removeItem(todoItem);          // db에서 삭제하고
                 localStorage.setItem(todoItem.item, JSON.stringify(todoItem);   // 변경된 값을 업데이트해주고
+          },
+          clearAll :  function() {
+                localStorage.clear();   // 로컬스토리지 전부 비우는 함수
           }
         },
     };
