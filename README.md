@@ -10,3 +10,4 @@ toy-project
 | 3 | 20200128 | 구현 | [할일목록 표시 기능 & 삭제 기능 구현](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_03.md) | v-for |
 | 4 | 20200129 | 구현 | [토글 기능 구현](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_04.md) | v-bind:class |
 | 5 | 20200130 | 구조화 | [지금까지 코드를 리팩토링](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_05.md) | |
+| 6 | 20200130 | 구현 | [modal 컴포넌트 사용하기](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_06.md) | slot |
