@@ -11,12 +11,12 @@
  
  - 기존 자바스크립트(ES5)는 {} 에 상관없이 스코프가 설정됨
  
-    var sum = 0;
-    for (var i =1; i <= 5; i++) {
-       sum = sum + i;
-    }
-    console.log(sum);
-    console.log(i);
+     var sum = 0;
+     for (var i =1; i <= 5; i++) {
+        sum = sum + i;
+     }
+     console.log(sum);
+     console.log(i);
   
   
   
@@ -26,13 +26,13 @@
   - js 해석기는 코드의 라인 순서와 관계 없이 함수선언식과 변수를 위한 메모리 공간을 먼저 확보한다.
   - 따라서, function a() (함수선언문)와 var(변수)는 코드의 최상단으로 끌어올린
 
-    function() willBeOveridden() {
-      return 10;
-    }
-    willBeOveridden(); // 5
-    function() willBeOveridden() {
-      return 5;
-    }
+     function() willBeOveridden() {
+       return 10;
+     }
+     willBeOveridden(); // 5
+     function() willBeOveridden() {
+       return 5;
+     }
   
 
 
