@@ -1,62 +1,40 @@
-# 뷰 라우터
+# 화살표 함수
 
-####  뷰 라우터 소개와 설치
-
-싱글 페이지 어플리케이션을 구현을 위한 뷰 라이브러리
-
-### NPM 방식 설치
-
-    npm install vue-router
+###  Arrow Function 
+    - 함수를 정의할 때 function이라는 키워드를 사용하지 않고 =>로 대체
+    - 흔히 사용하는 콜백 함수의 문법을 간결화
+    콜백함수 안에서의 스코프는 글로벌(window)를 가리킴
     
+    // ES5 함수 정의 방식
+    var sum = function(a, b) {
+        return a + b;
+    };
 
-### 라우터 연결하기
-
-    <div id="app">
-    <div>
-        <router-link to="/login"></router-link>
-        <router-link to="/main"></router-link>
-    </div>
-    <router-view></router-view> // new Vue 에서 app에 router를 등록했기때문에 사용가능한 컴포넌트, 이 안에 path에 따라 컴포넌트가 표현된다
-    </div>
-       
-    <script>
-        const LoginComponent = {
-            template : '<div>login</div>
-        }
-        const MainComponent = {
-            template : '<div>main</div>
-        }
-        
-        const Router = new VueRouter({
-            // url에 #없애는 설정값
-            mode : 'history', 
-            // 페이지의 라우팅 정보(어디로 이동할지에 대한 정보)
-            routes : [
-                {
-                    // 페이지의 url 주소
-                    path : '/login',
-                    // 해당 url에서 표시될 컴포넌트
-                    component : LoginComponent 
-                },
-                {
-                    path : '/main',
-                    component : MainComponent
-                }                                                       
-            ]
-        });
-        
-        new Vue({
-            el : '#app',
-            router : Router
-        });
-    </script>
+    // ES6 함수 정의 방식
+    var sum = (a. b) => {
+        return a + b;
+    }
     
-router는 methods처럼 기본 내장된 예약어임. 라우터를 인스턴스화 하고  app태그와 연결함.
+    sum(10 ,20);
+    
+    
+### 화살표 함수 사용 예시
 
+    // ES5
+    var arr = ["a", "b", "c"];
+    arr.forEach(function(value) {
+        console.log(value); //a, b, c
+    });
+    
+    // ES6
+    const arr = ["a", "b", "c"];
+    arr.forEach(value => console.log(value); //a, b, c );
+    
+    
+### 화살표 함수 참고
 
-
-네비게이션 가드 : https://joshua1988.github.io/web-development/vuejs/vue-router-navigation-guards/
-
+https://poiemaweb.com/es6-arrow-function
+    
 
 
 
