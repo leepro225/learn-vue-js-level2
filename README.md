@@ -14,3 +14,4 @@ toy-project
 | 7 | 20200131 | style | [트랜지션 소개](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_07.md) | |
 | 8 | 20200201 | ES6 | [const and let](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_08.md) | |
 | 9 | 20200202 | ES6 | [arrow function](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_09.md) | |
+| 10 | 20200202 | ES6 | [속성 메서드의 축약 특징 설명](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_10.md) | |
