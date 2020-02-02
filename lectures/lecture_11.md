@@ -1,180 +1,40 @@
-# 템플릿 문법 - 기본
+# Modules
 
-###  데이터 바인딩과 디렉티브
-뷰 템플릿 문법 : 화면을 조작하는 방법을 의미  
-크게 데이터 바인딩과 디렉티브로 나뉜다.  
+###  자바스크립트 모듈화 방법
 
-### 데이터 바인딩
-뷰 인스턴스에서 정의한 속성들을 화면에 표시하는 방법. 기본적인 데이터 바인딩 방식으로 콧수염 괄호가 있음  
-
-    <div>{{ message }}</div>
+ - 자바스크립트 모듈 로더 라이브러리(AMD, Commons JS) 기능을 js 언어 자체에서 지원  
+ - 호출되기 전까지는 코드 실행과 동작을 하지 않는 특징이 있음  
+ 
+    // libs/math.js
+    export function sum(x, y) {
+        return x + y;
+    }
+    export var pi = 3.141593;
     
-    new Vue({
-      data : {
-        message : 'Hello Vue.js'
-      }
-    })
+    // main.js
+    import {sum} from 'libs/math.js';
+    sum(1, 2);
     
-### 디렉티브
-화면 조작에 자주 사용되는 방식들을 모아 디렉티브 형태로 제공. v-가 붙으면 vue가 디렉티브로 인식  
-아래의 예처럼 특정 속성 값에 따라 화면의 영역을 표시하거나 표시하지 않을 수 있다.
+ - ES5에서와 달리 ES6에서는 파일 단위로 스코프가 나뉨  
+ 
+ 
+ 
 
-    <div>
-     Hello <span v-if="show">Vue.js</span>
-    </div>
+### default export
+
+    // util.js
+    export default function(x) {
+        return console.log(x);
+    }
     
-    new Vue({
-     data : {
-       show : false
-     }
-    })
+    // main.js
+    import util from `util.js`;
+    console.log(util); // function(x) {return console.log(x);}
+    util("hi");
+
+    // app.js
+    import log from `util.js`;  // 다른 이름으로도 가져와서 사용 가능
+    console.log(log); // function(x) {return console.log(x);}
+    log("hi");
     
-    
-### 데이터 바인딩과 computed 속성
-
-     <div id="app">
-        <p>{{ num }}</p>
-        <p>{{ doubleNum }}</p>
-     </div>
-
-     <script>
-        new Vue({
-          el: '#app',
-          data: {
-            num: 10,
-          },
-          computed: {
-            doubleNum: function() {
-              return this.num * 2;
-            }
-          }
-        })
-      </script>
-
-
-computed속성은 data의 변화에 따라 변화하게 될 속성을 정의한다.
-
-
-
-
-### v-bind로 id와 class 바인딩하기
-
-     <div id="app">
-        <p v-bind:id="uuid" v-bind:class="name">{{ num }}</p>
-     </div>
-      <script>
-        new Vue({
-          el: '#app',
-          data: {
-            num: 10,
-            uuid: 'abc1234',
-            name: 'text-blue'
-          }
-        })
-      </script>
-   
-  id와 class를 데이터에 따라 동적으로 바꾸고 싶을 때 v-bind를 사용한다.
-  
-  
-  
-  
-  ### v-if, 데이터에 따라 특정 태그를 보여주냐 마냐 할때
-  
-    <div id="app">
-        <div v-if="loading">
-          Loading...
-        </div>
-        <div v-else>
-          test user has been logged in
-        </div>
-    </div>
-    
-    <script>
-        new Vue({
-          el: '#app',
-          data: {
-            loading: true
-          }
-        })
-    </script>
-  
- ※ dom에서 완전히 제거됨
- 
- 
- 
- 
- ### v-show, 데이터에 따라 특정 태그를 보여주냐 마냐 할때
-  
-    <div id="app">
-        <div v-show="loading">
-          Loading...
-        </div>
-    </div>
-    
-    <script>
-        new Vue({
-          el: '#app',
-          data: {
-            loading: true
-          }
-        })
-    </script>
-  
- ※ dom에서 style에 display:none이 추가됨 
- 
- 
- 
- 
- 
- ### 모르는 문법이 나왔을 때 공식 문서를 보고 해결하는 방법
- 
- www.vuejs.org 에서 검색, 예제를 보고 따라하기
- 
- 
- 
- 
- ### methods 속성과 click 이벤트
- 
-      <div id="app">
-        <button v-on:click="logText">click me</button>
-      </div>
-      <script>
-        new Vue({
-          el: '#app',
-          methods: {
-            logText: function() {
-              console.log('clicked');
-            }
-          }
-        })
-      </script>
-  
-  
-  
-  
-  ### methods 속성과 v-on 디렉티브를 이용한 키보드, 마우스 이벤트 처리 방법
-  
-      <div id="app">
-        <input type="text" v-on:keyup="logText"> // 사용자가 키보드를 누를때마다
-        <input type="text" v-on:keyup.enter="logText"> // 사용자가 엔터버튼을 누르면
-        <button>add</button>
-      </div>
-      <script>
-        new Vue({
-          el: '#app',
-          methods: {
-            logText: function() {
-              console.log('clicked');
-            }
-          }
-        })
-      </script>
-  
-  
-keyup. 뒤에 있는 것을 modify라고 함
- 
- 
-
- 
-
-
+- default 는 하나의 파일에 하나만 쓸 수 있다. 인캡슐리션. 모듈화 한다...?
