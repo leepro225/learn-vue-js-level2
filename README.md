@@ -16,4 +16,4 @@ toy-project
 | 9 | 20200202 | ES6 | [arrow function](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_09.md) | |
 | 10 | 20200202 | ES6 | [속성 메서드의 축약 특징 설명](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_10.md) | |
 | 11 | 20200202 | ES6 | [Modules](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_11.md) | |
-| 121 | 20200202 | Vuex | [Vuex 소개](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_12.md) | |
+| 12 | 20200202 | Vuex | [Vuex 소개- MVC패턴과 Flex패턴](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_12.md) | |
