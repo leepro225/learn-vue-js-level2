@@ -18,3 +18,4 @@ toy-project
 | 11 | 20200202 | ES6 | [Modules](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_11.md) | |
 | 12 | 20200202 | Vuex | [Vuex 소개- MVC패턴과 Flex패턴](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_12.md) | |
 | 13 | 20200203 | Vuex | [Vuex가 필요한 이유, 컨셉, 구조](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_13.md) | |
+| 14 | 20200203 | Vuex | [Vuex 설치하기 및 등록](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_14.md) | |
