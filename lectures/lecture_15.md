@@ -1,48 +1,58 @@
-# 싱글파일 컴포넌트
+# Vuex 기술 요소
 
-### props로 데이터 내리기
+- state : 여러 컴포넌트에 공유되는 데이터 data  
+- getters : 연산된 state 값을 접근하는 속성 computed  
+- mutations : state 값을 변경하는 이벤트 로직과 메서드 methods  
+- actions : 비동기 처리 로직을 선언하는 메서드 async methods -->api call할때 사용   
 
-#### 부모 컴포넌트
 
-      <template>
-      <div>
-          <!-- <app-header v-bind:프롭스 속성 이름="아래로 내릴 상위 컴포넌트의 데이터 이름"></app-header> -->
-          <app-header v-bind:propsdata="str"></app-header>
-        </div>
-      </template>
+### state 란?
 
-      <script>
-      import AppHeader from './components/AppHeader.vue';
+- 여러 컴포넌트 간에 공유할 데이터 - 상태  
 
-      export default {
-        data: function() {
-          return {
-            str: 'Header'
-          }
-        },
-        components: {
-          'app-header': AppHeader
-        }
+      // Vue  
+      data : {
+            message : 'Hello Vue.js!'
       }
-      </script>
-
- 오른쪽이 현재 파일의 데이터, 왼쪽이 하위로 내렸을 때 프롭스 이름
- 
- #### 자식 컴포넌트
- 
-      <template>
-        <header>
-          <h1>{{ propsdata }}</h1>
-        </header>
-      </template>
-
-      <script>
-      export default {
-        props: ['propsdata'],
-      }
-      </script>
-
-프롭스 속성을 배열로 받아 사용하면 됨!!!
       
+      // Vuex  
+      state : {
+            message : 'Hello Vue.js!'
+      }
+      
+      // 접근방법
+      
+      <!-- Vue -->
+      <p>{{ message }}</p>
+      
+      <!-- Vuex -->
+      <p>{{ this.$store.state.message }}</p>
+      
+      
+### getters 란?
+ - state값을 접근하는 속성이자 computed() 처럼 미리 연산된 값을 접근하는 속성
+ 
+      // store.js
+      state : {
+            num : 10
+      },
+      getters : {
+            getNumber(state) {
+                  return state.num;
+            },
+            doubleNumber(state) {
+                  return state.num * 2;
+            }
+      
+      }
+      
+      // 접근 방법
+      <p>{{ this.$store.getters.getNumber }}</p>
+      <p>{{ this.$store.getters.doubleNumber }}</p>
+      
+      
+- 나중에 배우게될 헬퍼함수로 축약해서 접근 가능  
+
+
 
 
