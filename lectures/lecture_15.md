@@ -32,24 +32,24 @@
 ### getters 란?
  - state값을 접근하는 속성이자 computed() 처럼 미리 연산된 값을 접근하는 속성
  
-      // store.js
-      state : {
-            num : 10
-      },
-      getters : {
-            getNumber(state) {
-                  return state.num;
+            // store.js
+            state : {
+                  num : 10
             },
-            doubleNumber(state) {
-                  return state.num * 2;
+            getters : {
+                  getNumber(state) {
+                        return state.num;
+                  },
+                  doubleNumber(state) {
+                        return state.num * 2;
+                  }
+
             }
-      
-      }
-      
-      // 접근 방법
-      <p>{{ this.$store.getters.getNumber }}</p>
-      <p>{{ this.$store.getters.doubleNumber }}</p>
-      
+
+            // 접근 방법
+            <p>{{ this.$store.getters.getNumber }}</p>
+            <p>{{ this.$store.getters.doubleNumber }}</p>
+
       
 - 나중에 배우게될 헬퍼함수로 축약해서 접근 가능  
 
