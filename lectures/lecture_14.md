@@ -1,38 +1,43 @@
-# 싱글파일 컴포넌트
+# 설치하기
 
-### data
+### npm
 
-      <script>
-      export default {
-        data: function() {
-                  return { // 꼭 데이터라는 function의 return값으로 사용해야한다.
-                  }        // data : {}이러케 해버리면 다른 컴포넌트들에서도 참고가 가능해져 에러가 발생하기 때문
-            }
-      }
-      </script>
+      npm i vuex --save
+      
+- 설치가 완료되면 package.json에 dependencies에 "vuex" : "버전"이 생김  
+
       
       
-### 컴포넌트 등록하기
-
-      <AppHeader></AppHeader>
       
-컴포넌트명은 두 단어 이상조합, 파스칼 케이스로 권장한다. 이렇게 안하면 브라우저가 기존의 html태그와 구분이 어렵다.
+### vuex 파일 만들기(보통 store라고 함)
 
-
-
-      <template>
-        <div>
-          <app-header></app-header>
-        </div>
-      </template>
-
-      <script>
-      import AppHeader from './components/AppHeader.vue';
+      - src
+        └ store
+            └ store.js
+            
+            
       
-      export default {
-        components: {
-          'app-header': AppHeader
-        }
-      }
-      </script>
+### store.js 파일 안, vuex 등록하기
+
+      import Vue from 'vue' 
+      import Vuex from 'vuex'
+      
+      Vue.use(Vuex);    // use는 vue의 플러그인, vuex를 전역으로 사용하겠다는 거
+      
+      export const store = new Vuex.Store({
+            //
+      )};
+      
+### main.js 파일 안, import하기
+
+      import Vue from 'vue' 
+      import App from './App.vue'
+      import { store } from './store/store'
+
+      new Vue({
+         el : '#app',
+         store,
+         render : h => h(App)
+      });
+
 
