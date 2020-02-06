@@ -128,3 +128,29 @@
       
       // App.vue
       this.$store.dispatch('delayDoubleNumber'); ① actions로 가서 메서드를 찾음
+      
+      
+      
+      
+  #### actions 비동기 코드 예제
+  
+      // store.js
+      mutations: {
+            setData(state, fetchedDate) {
+                  state.product = fetchedData;
+            }
+      },
+      actions: {
+            fetchProductData(context) {
+                  return axios.get('https://domain.com/product/1')
+                              .then(response => context.commit('setData', response));
+            }
+      }
+      
+      // App.vue
+      methods : {
+            getProduct() {
+                  this.$store.dispatch('fetchProductData');
+            }
+      }
+      
