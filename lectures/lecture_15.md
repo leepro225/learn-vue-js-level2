@@ -78,20 +78,20 @@
 ### mutations의 commit() 형식
  - state를 변경하기 위해 mutations를 동작시킬 때 인자(payload)를 전달할 수 있음  
  
-     // store.js
-     state : { storeNum : 10 },
-     mutations : {
-           modifyState(state, payload) {
-                 console.log(payload.str);
-                 return state.storeNum += payload.num;
+           // store.js
+           state : { storeNum : 10 },
+           mutations : {
+                 modifyState(state, payload) {
+                       console.log(payload.str);
+                       return state.storeNum += payload.num;
+                 }
            }
-     }
-      
-     // App.vue
-     this.$store.commit('modifyState', {
-           str : 'passed from payload',
-           num : 20
-     });
+
+           // App.vue
+           this.$store.commit('modifyState', {
+                 str : 'passed from payload',
+                 num : 20
+           });
 
 
 
