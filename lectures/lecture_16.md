@@ -1,59 +1,41 @@
-# 싱글파일 컴포넌트
-
-### emit로 데이터 보내기
-
-#### 자식 컴포넌트
-
-      <template>
-        <header>
-          <h1>{{ propsdata }}</h1>
-          <button v-on:click="sendEvent">send</button>
-        </header>
-      </template>
-
-      <script>
-      export default {
-        props: ['propsdata'],
-        methods: {
-          sendEvent: function() {
-            this.$emit('renew'); // renew 상위로 보낼 이벤트의 이름
-          }
-        }
-      }
-      </script>
-
- 
- #### 부모 컴포넌트
- 
-      <template>
-        <div>
-          <app-header 
-            v-bind:propsdata="str"
-            v-on:renew="renewStr"></app-header> // v-on:하위에서 받은 emit의 이름="상위의 메소드 명"
-        </div>
-      </template>
-
-      <script>
-      import AppHeader from './components/AppHeader.vue';
-
-      export default {
-        data: function() {
-          return {
-            str: 'Header'
-          }
-        },
-        components: {
-          'app-header': AppHeader
-        },
-        methods: {
-          renewStr: function() {    // renew를 받아 renewStr을 실행하겠쥬
-            this.str = 'hi';        // 이게 실행되면 propsdata로 하위로 데이터를 보낼테니 화면에서 값이 바뀐다~
-          }
-        }
-      }
-      </script>
+# 스프레드 연산자와 헬퍼
 
 
+### 헬퍼의 사용법
+ - 헬퍼를 사용하고자 하는 vue 파일에서 아래와 같이 해당 헬퍼를 로딩
+
+      // App.vue
+      import { mapState } from 'vuex'
+      import { mapGetters } from 'vuex'
+      import { mapMutations } from 'vuex'
+      import { mapActions } from 'vuex'
       
+      export default {
+            computed() { ...mapState(['num']), ...mapGetters(['countedNum'])},
+            methods : { ...mapMutations(['clickBtn']), ...mapActions(['asyncClickBtn'])}
+      }
 
+this.num / this.conutedNum / this.clickBtn / this.asyncClickBtn 으로 컴포넌트 안에서 접근이 가능하다.  
 
+### 뿌리는 연산자 ㅋㅋㅋObject Spread Operator
+ - ...안에 여러개의 속성들이 뿌려져 있다 ?ㅋㅋㅋ  
+ 
+      let josh = {
+            field : 'web',
+            language : 'js'
+      };
+      let developer = {
+            nation : 'korea',
+            field : josh.field
+            lagnuage : josh.language   
+       };
+       
+       console.log(developer); // { nation : 'korea', field : 'web', language : 'js' }
+       
+       // 이게 너무 기니까 ES6에서 나온 ...문법
+       
+       let developer = {
+            nations : 'korea',
+            ...josh
+       };
+     
