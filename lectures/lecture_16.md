@@ -38,4 +38,13 @@ this.num / this.conutedNum / this.clickBtn / this.asyncClickBtn 으로 컴포넌
             nations : 'korea',
             ...josh
        };
+       
+       // 만약 이러케 해버리면??
+       let developer = {
+            nations : 'korea',
+            josh
+       }
+       
+       console.log(developer); // {nation : 'korea', josh {field : 'web', language : 'js'}}
+      
      
