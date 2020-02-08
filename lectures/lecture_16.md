@@ -4,16 +4,16 @@
 ### 헬퍼의 사용법
  - 헬퍼를 사용하고자 하는 vue 파일에서 아래와 같이 해당 헬퍼를 로딩
 
-      // App.vue
-      import { mapState } from 'vuex'
-      import { mapGetters } from 'vuex'
-      import { mapMutations } from 'vuex'
-      import { mapActions } from 'vuex'
-      
-      export default {
-            computed() { ...mapState(['num']), ...mapGetters(['countedNum'])},
-            methods : { ...mapMutations(['clickBtn']), ...mapActions(['asyncClickBtn'])}
-      }
+       // App.vue
+       import { mapState } from 'vuex'
+       import { mapGetters } from 'vuex'
+       import { mapMutations } from 'vuex'
+       import { mapActions } from 'vuex'
+
+       export default {
+             computed() { ...mapState(['num']), ...mapGetters(['countedNum'])},
+             methods : { ...mapMutations(['clickBtn']), ...mapActions(['asyncClickBtn'])}
+       }
 
 this.num / this.conutedNum / this.clickBtn / this.asyncClickBtn 으로 컴포넌트 안에서 접근이 가능하다.  
 
