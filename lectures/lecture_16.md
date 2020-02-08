@@ -20,15 +20,15 @@ this.num / this.conutedNum / this.clickBtn / this.asyncClickBtn 으로 컴포넌
 ### 뿌리는 연산자 ㅋㅋㅋObject Spread Operator
  - ...안에 여러개의 속성들이 뿌려져 있다 ?ㅋㅋㅋ  
  
-      let josh = {
-            field : 'web',
-            language : 'js'
-      };
-      let developer = {
-            nation : 'korea',
-            field : josh.field
-            lagnuage : josh.language   
+       let josh = {
+             field : 'web',
+             language : 'js'
        };
+       let developer = {
+             nation : 'korea',
+             field : josh.field
+             lagnuage : josh.language   
+        };
        
        console.log(developer); // { nation : 'korea', field : 'web', language : 'js' }
        
