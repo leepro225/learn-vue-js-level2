@@ -21,3 +21,4 @@ toy-project
 | 14 | 20200203 | Vuex | [Vuex 설치하기 및 등록](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_14.md) | |
 | 15 | 20200204 | Vuex | [Vuex 기술요소 state, getters, mutations, actions](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_15.md) | |
 | 16 | 20200207 | ES6 | [spread 연산자](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_16.md) | |
+| 17 | 20200208 | Vuex | [mapState, mapGetters](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_17.md) | |
