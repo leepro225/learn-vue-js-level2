@@ -1,59 +1,40 @@
-# 싱글파일 컴포넌트
+# mapState, mapGetters
 
-### emit로 데이터 보내기
-
-#### 자식 컴포넌트
-
-      <template>
-        <header>
-          <h1>{{ propsdata }}</h1>
-          <button v-on:click="sendEvent">send</button>
-        </header>
-      </template>
-
-      <script>
-      export default {
-        props: ['propsdata'],
-        methods: {
-          sendEvent: function() {
-            this.$emit('renew'); // renew 상위로 보낼 이벤트의 이름
-          }
-        }
-      }
-      </script>
-
+### mapState
+ - Vuex에 선언한 state 속성을 뷰 컴포넌트에 더 쉽게 연결해주는 헬퍼
  
- #### 부모 컴포넌트
+       // App.vue
+       import { mapState } from 'vuex'
+
+       computed() {
+            ...mapState(['num'])
+            // num() { return this.$store.state.num; }
+       }
  
-      <template>
-        <div>
-          <app-header 
-            v-bind:propsdata="str"
-            v-on:renew="renewStr"></app-header> // v-on:하위에서 받은 emit의 이름="상위의 메소드 명"
-        </div>
-      </template>
-
-      <script>
-      import AppHeader from './components/AppHeader.vue';
-
-      export default {
-        data: function() {
-          return {
-            str: 'Header'
-          }
-        },
-        components: {
-          'app-header': AppHeader
-        },
-        methods: {
-          renewStr: function() {    // renew를 받아 renewStr을 실행하겠쥬
-            this.str = 'hi';        // 이게 실행되면 propsdata로 하위로 데이터를 보낼테니 화면에서 값이 바뀐다~
-          }
-        }
-      }
-      </script>
+ // store.js
+ state : {
+      num : 10
+ }
+ 
+ <!-- <p>{{ this.$store.state.num }}</p> -->
+<p>{{ this.num }}</p> // 이러케 가져다 쓸수 있음 헬퍼 함수로 받아왔으니
 
 
+ ### mapGetters
+  - Vuex에 선언한 getters 속성을 뷰 컴포넌트에 더 쉽게 연결해주는 헬퍼
+  
+      // App.vue
+      import { mapGetters } from 'vuex'
       
-
+      computed() { ...mapGetters(['reverseMessage'])}
+      
+      // store.js
+      getters: {
+            reverseMessage(state) {
+                  return state.msg.split('').reverse().join('');
+            }
+      }
+      
+      <!-- <p>{{ this.$store.getters.reverseMessage }}</p>-->
+      <p>{{ this.reverseMessage }}</p>
 
