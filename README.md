@@ -23,3 +23,4 @@ toy-project
 | 16 | 20200207 | ES6 | [spread 연산자](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_16.md) | |
 | 17 | 20200208 | Vuex | [mapState, mapGetters](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_17.md) | |
 | 18 | 20200209 | Vuex | [헬퍼함수](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_18.md) | |
+| 19 | 20200209 | Vuex | [mapMutations, mapActions](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_19.md) | |
