@@ -22,4 +22,4 @@ toy-project
 | 15 | 20200204 | Vuex | [Vuex 기술요소 state, getters, mutations, actions](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_15.md) | |
 | 16 | 20200207 | ES6 | [spread 연산자](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_16.md) | |
 | 17 | 20200208 | Vuex | [mapState, mapGetters](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_17.md) | |
-| 18 | 20200209 | Vuex | [mapMutations, mapActions](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_18.md) | |
+| 18 | 20200209 | Vuex | [헬퍼의 유연한 문법](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_18.md) | |
