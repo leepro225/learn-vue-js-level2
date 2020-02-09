@@ -24,4 +24,4 @@ toy-project
 | 17 | 20200208 | Vuex | [mapState, mapGetters](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_17.md) | |
 | 18 | 20200209 | Vuex | [헬퍼함수](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_18.md) | |
 | 19 | 20200209 | Vuex | [mapMutations, mapActions](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_19.md) | |
-| 20 | 20200209 | Vuex | [프로젝트 구조화와 모듈화 방법](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_20.md) | |
+| 20 | 20200209 | 구조화 | [프로젝트 구조화와 모듈화 방법](https://github.com/leepro225/learn-vue-js-level2/blob/master/lectures/lecture_20.md) | |
