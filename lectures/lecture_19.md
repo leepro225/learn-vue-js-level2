@@ -1,40 +1,41 @@
-# mapState, mapGetters
+# mapMuations, mapActions
 
-### mapState
- - Vuex에 선언한 state 속성을 뷰 컴포넌트에 더 쉽게 연결해주는 헬퍼
+### mapMuations
+ - Vuex에 선언한 mutations 속성을 뷰 컴포넌트에 더 쉽게 연결해주는 헬퍼
  
        // App.vue
-       import { mapState } from 'vuex'
+       import { mapMuations } from 'vuex'
 
-       computed() {
-            ...mapState(['num'])
-            // num() { return this.$store.state.num; }
+       methods() {
+            ...mapMuations(['clickBtn'])
+            authLogin() {},
+            displayTable() {}
        }
  
        // store.js
-       state : {
-            num : 10
+       mutations: {
+             clickBtn(state) {
+                alert(state.msg);
+             }
        }
  
-       <!-- <p>{{ this.$store.state.num }}</p> -->
-       <p>{{ this.num }}</p> // 이러케 가져다 쓸수 있음 헬퍼 함수로 받아왔으니
+       <button @click="clickBtn">popup message</button>
 
 
- ### mapGetters
-  - Vuex에 선언한 getters 속성을 뷰 컴포넌트에 더 쉽게 연결해주는 헬퍼
+ ### mapActions
+  - Vuex에 선언한 actions 속성을 뷰 컴포넌트에 더 쉽게 연결해주는 헬퍼
   
         // App.vue
-        import { mapGetters } from 'vuex'
+        import { mapActions } from 'vuex'
 
-        computed() { ...mapGetters(['reverseMessage'])}
+        methods() { ...mapActions(['delayClickBtn'])}
 
         // store.js
-        getters: {
-              reverseMessage(state) {
-                    return state.msg.split('').reverse().join('');
+        actions: {
+              delayClickBtn(context) {
+                    setTimeout(() => context.commit('clickBtn'), 2000);
               }
         }
 
-        <!-- <p>{{ this.$store.getters.reverseMessage }}</p>-->
-        <p>{{ this.reverseMessage }}</p>
+        <button @click="delayClickBtn">delay popup message</button>
 
