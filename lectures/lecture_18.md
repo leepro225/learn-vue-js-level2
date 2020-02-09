@@ -1,40 +1,20 @@
-# mapState, mapGetters
+# mapMutations, mapActions
 
-### mapState
- - Vuex에 선언한 state 속성을 뷰 컴포넌트에 더 쉽게 연결해주는 헬퍼
+### 헬퍼의 유연한 문법
+ - Vuex에 선언한 속성을 그대로 컴포넌트에 연결하는 문법
  
-       // App.vue
-       import { mapState } from 'vuex'
-
-       computed() {
-            ...mapState(['num'])
-            // num() { return this.$store.state.num; }
-       }
+       // 배열 리터럴
+       ...mapMutations([
+        'clickBtn', // 'clickBtn' : clickBtn
+        'addNumber' // addNumber(인자)
+       ])
+       
+ - vuex에 선언한 속성을 컴포넌트의 특정 메서드에다가 연결하는 문법
+       
+       // 객체 리터럴
+       ...mapMuations({
+         popupMsg: 'clickbtn' // 컴포넌트 메서드 명 : Store 의 뮤테이션 명
+       })
+       
  
-       // store.js
-       state : {
-            num : 10
-       }
- 
-       <!-- <p>{{ this.$store.state.num }}</p> -->
-       <p>{{ this.num }}</p> // 이러케 가져다 쓸수 있음 헬퍼 함수로 받아왔으니
-
-
- ### mapGetters
-  - Vuex에 선언한 getters 속성을 뷰 컴포넌트에 더 쉽게 연결해주는 헬퍼
-  
-        // App.vue
-        import { mapGetters } from 'vuex'
-
-        computed() { ...mapGetters(['reverseMessage'])}
-
-        // store.js
-        getters: {
-              reverseMessage(state) {
-                    return state.msg.split('').reverse().join('');
-              }
-        }
-
-        <!-- <p>{{ this.$store.getters.reverseMessage }}</p>-->
-        <p>{{ this.reverseMessage }}</p>
 
