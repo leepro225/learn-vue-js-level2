@@ -37,7 +37,7 @@
      
      // mutations.js
      
-     const removeItem = (state, payload) => {
+     const removeItem = (state, payload) => { // 화살표 함수
       ... something logics
      };
      const addItem = (state, payload) => {
@@ -64,10 +64,18 @@
           });
           
           // todo.js
-          const state = {}
+          const state = {
+           // 속성
+          }
           const getters = {}
           const mutations = {}
           const actions = {}
+          
+          export default {
+           state,
+           getters,
+           mutations
+          }
      
      
      
